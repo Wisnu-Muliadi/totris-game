@@ -19,6 +19,11 @@ namespace Tomino.Model
             _ = _scoreForClearedRows.TryGetValue(count, out var valueIncrease);
             Value += valueIncrease;
         }
+        public int RowsClearedScore(int count)
+        {
+            _ = _scoreForClearedRows.TryGetValue(count, out var valueIncrease);
+            return valueIncrease;
+        }
 
         public void PieceFinishedFalling(int rowsCount)
         {

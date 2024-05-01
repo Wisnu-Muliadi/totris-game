@@ -42,6 +42,8 @@ namespace Tomino
             _game.PieceMovedEvent += audioPlayer.PlayPieceMoveClip;
             _game.Start();
 
+            gameConfig.popUpText.game = _game; // Wiss added
+            _game.AssignPopUpText(gameConfig.popUpText); // Wiss Added
             gameConfig.scoreView.game = _game;
             gameConfig.levelView.game = _game;
         }

@@ -10,6 +10,14 @@ namespace Tomino
     {
         public delegate void GameEventHandler();
 
+        public View.PopUpText PopUpText { get; private set; } // Wiss Added
+
+        public void AssignPopUpText(View.PopUpText assignedPopUpText)
+        {
+            PopUpText = assignedPopUpText;
+        }
+        //Wis Added
+
         /// <summary>
         /// The event triggered when the game is finished.
         /// </summary>
@@ -200,6 +208,7 @@ namespace Tomino
             var rowsCount = _board.RemoveFullRows();
             Score.RowsCleared(rowsCount);
             Level.RowsCleared(rowsCount);
+            PopUpText.PopUp(rowsCount); //Wiss added
             AddPiece();
         }
 
