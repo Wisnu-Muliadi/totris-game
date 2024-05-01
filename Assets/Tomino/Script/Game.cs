@@ -78,6 +78,7 @@ namespace Tomino
             Level = new Level();
             _board.RemoveAllBlocks();
             AddPiece();
+            PopUpText?.ResetAnimator();
         }
 
         /// <summary>
