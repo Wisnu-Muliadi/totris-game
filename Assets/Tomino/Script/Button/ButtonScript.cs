@@ -23,4 +23,9 @@ public class ButtonScript : MonoBehaviour
 
     }
 
+    public void ExitButton()
+    {
+        Application.Quit();
+    }
+
 }

@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class AudioSliderController : MonoBehaviour
 {
     public Slider volumeSlider;
+    public static float volumeValue; 
     void Start()
     {
         // Berlangganan ke acara OnValueChanged slider
@@ -12,6 +13,7 @@ public class AudioSliderController : MonoBehaviour
 
     public void ChangeVolume(float volume)
     {
+        volumeValue = volume; 
         // Akses singleton GameManager dan sesuaikan volume sumber audio
         GameManager gameManager = GameManager.instance;
 

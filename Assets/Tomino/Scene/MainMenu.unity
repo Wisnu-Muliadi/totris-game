@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -329,7 +329,19 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 298121371}
         m_TargetAssemblyTypeName: ButtonScript, Assembly-CSharp
-        m_MethodName: ExitButtonGame
+        m_MethodName: ExitButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1096114718}
+        m_TargetAssemblyTypeName: Tomino.Audio.AudioPlayer, Assembly-CSharp
+        m_MethodName: PlayPauseClip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -695,6 +707,7 @@ GameObject:
   - component: {fileID: 1096114717}
   - component: {fileID: 1096114716}
   - component: {fileID: 1096114715}
+  - component: {fileID: 1096114718}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -826,6 +839,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1096114718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096114714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1603073bd46cf4518ac930999a9f847a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseClip: {fileID: 8300000, guid: fc9ca9bd050174388945a4648d36d601, type: 3}
+  resumeClip: {fileID: 8300000, guid: 8e9f2fc178c5c4d17a8321e522a22863, type: 3}
+  newGameClip: {fileID: 8300000, guid: 4be0660b30bc144f0b7e958c05ccfc06, type: 3}
+  pieceMoveClip: {fileID: 0}
+  pieceRotateClip: {fileID: 0}
+  pieceDropClip: {fileID: 0}
 --- !u!1 &1673927072
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,6 +964,18 @@ MonoBehaviour:
       - m_Target: {fileID: 298121371}
         m_TargetAssemblyTypeName: ButtonScript, Assembly-CSharp
         m_MethodName: SettingsButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1096114718}
+        m_TargetAssemblyTypeName: Tomino.Audio.AudioPlayer, Assembly-CSharp
+        m_MethodName: PlayNewGameClip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1163,6 +1206,18 @@ MonoBehaviour:
       - m_Target: {fileID: 298121371}
         m_TargetAssemblyTypeName: ButtonScript, Assembly-CSharp
         m_MethodName: StartButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1096114718}
+        m_TargetAssemblyTypeName: Tomino.Audio.AudioPlayer, Assembly-CSharp
+        m_MethodName: PlayResumeClip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

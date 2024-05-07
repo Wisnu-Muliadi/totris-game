@@ -50,11 +50,15 @@ namespace Tomino.Audio
         public void PlayToggleOffClip()
         {
             _audioSource.PlayOneShot(pauseClip);
-        }
-
-        internal void Awake()
+        }internal void Awake()
         {
             _audioSource = GetComponent<AudioSource>();
+            _audioSource.volume = AudioSliderController.volumeValue; 
         }
+        internal void Update()
+        {
+            _audioSource.volume = AudioSliderController.volumeValue;
+        }
+     
     }
 }
