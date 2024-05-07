@@ -15,11 +15,13 @@ namespace Tomino
         public GameObject screenButtons;
         public AudioSource musicAudioSource;
 
+
         private Game _game;
         private UniversalInput _universalInput;
 
         internal void Awake()
         {
+            audioPlayer.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("Volume");
             Application.targetFrameRate = 60;
 
             HandlePlayerSettings();

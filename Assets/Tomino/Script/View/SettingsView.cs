@@ -52,7 +52,7 @@ namespace Tomino.View
 
             closeButton.gameObject.GetComponent<PointerHandler>().onPointerDown.AddListener(() =>
             {
-                audioPlayer.PlayResumeClip();
+
             });
 
             Hide();
@@ -73,11 +73,11 @@ namespace Tomino.View
         {
             if (audioEnabled)
             {
-                audioPlayer.PlayToggleOnClip();
+
             }
             else
             {
-                audioPlayer.PlayToggleOffClip();
+
             }
         }
 
