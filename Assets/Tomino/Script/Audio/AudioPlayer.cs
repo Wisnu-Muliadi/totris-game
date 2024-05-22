@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Tomino.Model;
 
 namespace Tomino.Audio
 {
@@ -10,50 +11,76 @@ namespace Tomino.Audio
         public AudioClip pieceMoveClip;
         public AudioClip pieceRotateClip;
         public AudioClip pieceDropClip;
-        public AudioSource _audioSource;
+        public AudioSource audioSource, musicSource;
+        
+        public static AudioPlayer instance;
+        void Awake()
+        {
+            if (instance == null)
+            {
+                instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                UpdateAudioClip();
+                Destroy(gameObject);
+            }
+            musicSource.enabled = Settings.MusicEnabled;
+        }
 
+        void UpdateAudioClip()
+        {
+            instance.pauseClip = pauseClip;
+            instance.resumeClip = resumeClip;
+            instance.newGameClip = newGameClip;
+            instance.pieceMoveClip = pieceMoveClip;
+            instance.pieceRotateClip = pieceRotateClip;
+            instance.pieceDropClip = pieceDropClip;
+        }
         public void PlayPauseClip()
         {
-            _audioSource.PlayOneShot(pauseClip);
+            audioSource.PlayOneShot(pauseClip);
         }
 
         public void PlayResumeClip()
         {
-            _audioSource.PlayOneShot(resumeClip);
+            audioSource.PlayOneShot(resumeClip);
         }
 
         public void PlayNewGameClip()
         {
-            _audioSource.PlayOneShot(newGameClip);
+            audioSource.PlayOneShot(newGameClip);
         }
 
         public void PlayPieceMoveClip()
         {
-            _audioSource.PlayOneShot(pieceMoveClip);
+            audioSource.PlayOneShot(pieceMoveClip);
         }
 
         public void PlayPieceRotateClip()
         {
-            _audioSource.PlayOneShot(pieceRotateClip);
+            audioSource.PlayOneShot(pieceRotateClip);
         }
 
         public void PlayPieceDropClip()
         {
-            _audioSource.PlayOneShot(pieceDropClip);
+            audioSource.PlayOneShot(pieceDropClip);
         }
 
         public void PlayToggleOnClip()
         {
-            _audioSource.PlayOneShot(resumeClip);
+            audioSource.PlayOneShot(resumeClip);
         }
 
         public void PlayToggleOffClip()
         {
-            _audioSource.PlayOneShot(pauseClip);
+            audioSource.PlayOneShot(pauseClip);
         } 
         internal void Update()
         {
-            _audioSource.volume = PlayerPrefs.GetFloat("Volume");
+            audioSource.volume = PlayerPrefs.GetFloat("Volume");
+            musicSource.volume = PlayerPrefs.GetFloat("MusicVolume");
         }
     }
 }

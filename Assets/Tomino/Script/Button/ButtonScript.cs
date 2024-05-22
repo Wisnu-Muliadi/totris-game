@@ -7,25 +7,21 @@ public class ButtonScript : MonoBehaviour
 {
     public void MainMenu()
     {
-        SceneManager.LoadScene(0);
-        
+        SceneManager.UnloadSceneAsync(1);
     }
 
     public void StartButton()
     {
         SceneManager.LoadScene(2);
-
     }
 
     public void SettingsButton()
     {
-        SceneManager.LoadScene(1);
-
+        SceneManager.LoadScene(1, LoadSceneMode.Additive);
     }
 
     public void ExitButton()
     {
         Application.Quit();
     }
-
 }

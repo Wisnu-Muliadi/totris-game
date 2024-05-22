@@ -5,7 +5,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public AudioSource audioSource;
 
     void Awake()
     {
@@ -18,11 +17,5 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    // Add other audio-related functionality here
-    public void SearchAudioPlayers()
-    {
-        //audioSource = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
     }
 }

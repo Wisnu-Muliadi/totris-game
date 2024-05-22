@@ -3,6 +3,7 @@ using Tomino.Input;
 using Tomino.Model;
 using Tomino.View;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Tomino
 {
@@ -13,7 +14,8 @@ namespace Tomino
         public SettingsView settingsView;
         public AudioPlayer audioPlayer;
         public GameObject screenButtons;
-        public AudioSource musicAudioSource;
+        [Tooltip("Wisnu note: kosongkan")]
+        public AudioSource musicAudioSource; // leave empty in inspector
 
 
         private Game _game;
@@ -21,7 +23,9 @@ namespace Tomino
 
         internal void Awake()
         {
-            audioPlayer.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("Volume");
+            audioPlayer = AudioPlayer.instance; // wiss added
+            musicAudioSource = audioPlayer.musicSource; // wiss added
+            //audioPlayer.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("Volume"); // Wiss commented
             Application.targetFrameRate = 60;
 
             HandlePlayerSettings();
@@ -90,10 +94,13 @@ namespace Tomino
 
         private void ShowPauseView()
         {
+            audioPlayer.PlayPauseClip(); // wiss added
             alertView.SetTitle(TextID.GamePaused);
             alertView.AddButton(TextID.Resume, _game.Resume, audioPlayer.PlayResumeClip);
             alertView.AddButton(TextID.NewGame, _game.Start, audioPlayer.PlayNewGameClip);
             alertView.AddButton(TextID.Settings, ShowSettingsView, audioPlayer.PlayResumeClip);
+            alertView.AddButton(TextID.MainMenu, MainMenu, audioPlayer.PlayPieceDropClip);
+
             alertView.Show();
         }
 
@@ -102,11 +109,16 @@ namespace Tomino
             settingsView.Show(ShowPauseView);
         }
 
+        private void MainMenu()
+        {
+            SceneManager.LoadScene(0);
+        }
+
         private void HandlePlayerSettings()
         {
             screenButtons.SetActive(Settings.ScreenButtonsEnabled);
             gameConfig.boardView.touchInput.Enabled = !Settings.ScreenButtonsEnabled;
-            musicAudioSource.gameObject.SetActive(Settings.MusicEnabled);
+            musicAudioSource.enabled = Settings.MusicEnabled; // wis changed
         }
     }
 }

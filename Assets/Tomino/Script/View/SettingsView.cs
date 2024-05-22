@@ -25,6 +25,7 @@ namespace Tomino.View
 
         internal void Awake()
         {
+            audioPlayer = AudioPlayer.instance;
             musicToggle.isOn = Settings.MusicEnabled;
             musicToggle.onValueChanged.AddListener(musicEnabled =>
             {
@@ -73,11 +74,11 @@ namespace Tomino.View
         {
             if (audioEnabled)
             {
-
+                audioPlayer.PlayToggleOnClip();
             }
             else
             {
-
+                audioPlayer.PlayToggleOffClip();
             }
         }
 

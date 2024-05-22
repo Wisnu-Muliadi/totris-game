@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SFXSlider : MonoBehaviour
+public class MusicSlider : MonoBehaviour
 {
-    [SerializeField] string _settingName = "";
+    // Start is called before the first frame update
     void Start()
     {
         Slider slider = GetComponent<Slider>();
-        slider.value = PlayerPrefs.GetFloat(_settingName);
+        slider.value = PlayerPrefs.GetFloat("MusicVolume");
         slider.onValueChanged.AddListener(UpdateMusicVolume);
     }
     public void UpdateMusicVolume(float volume)
     {
-        PlayerPrefs.SetFloat(_settingName, volume);
+        PlayerPrefs.SetFloat("MusicVolume", volume);
     }
 }

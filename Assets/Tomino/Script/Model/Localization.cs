@@ -14,6 +14,7 @@ namespace Tomino.Model
         public const string Resume = "resume";
         public const string NewGame = "new-game";
         public const string Settings = "settings";
+        public const string MainMenu = "main-menu"; // wiss added
         public const string Music = "music";
         public const string ScreenButtons = "screen-buttons";
         public const string Theme = "theme";
@@ -37,6 +38,7 @@ namespace Tomino.Model
         public string resume = "RESUME";
         public string newGame = "NEW GAME";
         public string settings = "SETTINGS";
+        public string mainMenu = "MAIN MENU"; // wiss added
         public string music = "MUSIC";
         public string screenButtons = "SCREEN BUTTONS";
         public string theme = "THEME";
@@ -60,6 +62,7 @@ namespace Tomino.Model
                 TextID.Resume => resume,
                 TextID.NewGame => newGame,
                 TextID.Settings => settings,
+                TextID.MainMenu => mainMenu, // wiss added
                 TextID.Music => music,
                 TextID.ScreenButtons => screenButtons,
                 TextID.Theme => theme,

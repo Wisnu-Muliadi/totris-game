@@ -8,26 +8,17 @@ public class AudioSliderController : MonoBehaviour
     public static float volumeValue; 
     void Start()
     {
-        // Berlangganan ke acara OnValueChanged slider
         volumeSlider.onValueChanged.AddListener(ChangeVolume);
         SFXVolumeSlider.onValueChanged.AddListener(ChangeSFXVolume);
     }
 
     public void ChangeVolume(float volume)
     {
-        volumeValue = volume; 
-        // Akses singleton GameManager dan sesuaikan volume sumber audio
-        GameManager gameManager = GameManager.instance;
-
-        if (gameManager != null && gameManager.audioSource != null)
-        {
-            gameManager.audioSource.volume = volume;
-        }
+        PlayerPrefs.SetFloat("MusicVolume", volume);
     }
 
     public void ChangeSFXVolume(float volume)
     {
         PlayerPrefs.SetFloat("Volume", volume);
-
     }
 }

@@ -32,7 +32,7 @@ namespace Tomino.Model
 
         public static bool ScreenButtonsEnabled
         {
-            get => PlayerPrefs.GetInt(ScreenButtonsEnabledKey, 0).BoolValue();
+            get => PlayerPrefs.GetInt(ScreenButtonsEnabledKey, 1).BoolValue();
 
             set
             {
